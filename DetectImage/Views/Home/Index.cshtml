@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="container" id="page-wrapper">
+    <div class="row">         
+        
+        @using (Html.BeginForm("CheckImage", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" , enctype = "multipart/form-data", style="display:inline-block;" }))
+        {
+            <label for="imgInp" class="btn btn-info">Browse...</label>
+            <input type="file" name="file" id="imgInp" />           
+        }
+        <button id="check-btn" class="btn btn-success" style="display:inline-block;">Check</button>
+
+        <a id="download-url" hidden>Download</a>
+    </div>    
+    <br>
+    <div class="row">
+        <div class="picture-container">
+            <img id="picture" class="picture" src="">
+        </div>
+    </div>
+    <script>
+        var siteUrl = "@ViewBag.siteUrl";
+    </script>
+</div>
